@@ -10,7 +10,7 @@ var articles= {
                             title:'Article One I Abdul Kabeer',
                             heading:'Article one',
                             date:'Aug 13 2017',
-                            contenet: `
+                            content: `
                                 <p>
                                         This is my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.
                                 </p>
@@ -25,7 +25,7 @@ var articles= {
                 title:'Article Two I Abdul Kabeer',
                 heading:'Article Two',
                 date:'Aug 13 2017',
-                contenet: `
+                content: `
         <p>
                 This is my Second article.This is my Second article.This is my Second article.This is my Second article.
         </p> `
@@ -34,7 +34,7 @@ var articles= {
         title:'Article Three Abdul Kabeer',
         heading:'Article Three',
         date:'Aug 13 2017',
-        contenet: `
+        content: `
             <p>
                    This is my third article. This is my third article. This is my third article. This is my third article.
             </p> `
