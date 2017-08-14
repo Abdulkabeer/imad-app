@@ -5,11 +5,11 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articleOne ={
-    title:'Article One',
+var articleOne={
+    title:'Article One I Abdul Kabeer',
     heading:'Article one',
-    date:'Aug 13',
-    contenet:`  
+    date:'Aug 13 2017',
+    contenet: `
         <p>
                 This is my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.
         </p>
