@@ -5,22 +5,42 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articleOne={
-    title:'Article One I Abdul Kabeer',
-    heading:'Article one',
-    date:'Aug 13 2017',
-    contenet: `
+var articles={
+    'article-one': {
+                            title:'Article One I Abdul Kabeer',
+                            heading:'Article one',
+                            date:'Aug 13 2017',
+                            contenet: `
+                                <p>
+                                        This is my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.
+                                </p>
+                                <p>
+                                    This is the content of my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.
+                                 </p>
+                                    <p>
+                                    This is the content of my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.
+                                  </p>`
+                        },
+    'article-two': {
+                title:'Article Two I Abdul Kabeer',
+                heading:'Article Two',
+                date:'Aug 13 2017',
+                contenet: `
         <p>
-                This is my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.
-        </p>
-        <p>
-            This is the content of my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.
-         </p>
+                This is my Second article.This is my Second article.This is my Second article.This is my Second article.
+        </p> `
+  },
+    'article-three': {
+        title:'Article Three Abdul Kabeer',
+        heading:'Article Three',
+        date:'Aug 13 2017',
+        contenet: `
             <p>
-            This is the content of my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.This is the content of my first article.
-          </p>`
+                   This is my third article. This is my third article. This is my third article. This is my third article.
+            </p> `
+      }
+    
 };
-
 function createTemplate (data) {
      var title=data.title;
      var date=data.date;
@@ -62,17 +82,15 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one', function (req, res){
- res.send(createTemplate(articleOne));
+app.get('/:articleName', function(req, res){
+    //articleName == article-one
+    //articles[articleName] == {} content object for article one
+    var articleName=req.params.articleName;
+    res.send(createTemplate(articles[articleName]));
+
 });
 
-app.get('/article-two', function (req, res){
-  res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
 
-app.get('/article-three', function (req, res){
-  res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
-});
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
@@ -86,7 +104,7 @@ app.get('/ui/madi.png', function (req, res) {
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
 
-var port = 80
+var port = 80;
 app.listen(port, function () {
   console.log(`IMAD course app listening on port ${port}!`);
 });
