@@ -25,8 +25,7 @@ button.onclick = function() {
 };
 
 //Submit name 
-var nameInput= document.getElementById('name');
-var name= nameInput.vale;
+
 var submit= document.getElementById('submit_btn');
 submit.onclick = function () {
     
@@ -54,6 +53,8 @@ submit.onclick = function () {
     };
     
     //Make the request 
+    var nameInput= document.getElementById('name');
+    var name= nameInput.vale;
     request.open('GET','http://kabeera987.imad.hasura-app.io/submit-name?name='+ name,true);
     request.send(null);
 };
