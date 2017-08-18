@@ -131,7 +131,7 @@ app.get('articels/:articleName', function(req, res){
     
     //Select * from articel where title = article-one 
   
-    pool.query("SELECT * FROM article WHERE title=+'"+req.params.articelName+"'", function(err, result){
+    pool.query("SELECT * FROM article WHERE title= $1",[+req.params.articelName], function(err, result){
         if (err){
             res.status(500).send(err.toString());
         }else{
